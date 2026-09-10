@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Edenway High School — Design System
+   ============================================================ */
+
+@theme inline {
+  /* Brand Colors */
+  --color-navy-50: #f0f3f8;
+  --color-navy-100: #d9e1ed;
+  --color-navy-200: #b3c3db;
+  --color-navy-300: #8da5c9;
+  --color-navy-400: #6787b7;
+  --color-navy-500: #4169a5;
+  --color-navy-600: #345484;
+  --color-navy-700: #273f63;
+  --color-navy-800: #1b2a4a;
+  --color-navy-900: #0e1527;
+
+  --color-green-50: #f0f7f4;
+  --color-green-100: #d4ebe0;
+  --color-green-200: #a9d7c1;
+  --color-green-300: #7ec3a2;
+  --color-green-400: #53af83;
+  --color-green-500: #2d6a4f;
+  --color-green-600: #24553f;
+  --color-green-700: #1b402f;
+  --color-green-800: #122b20;
+  --color-green-900: #091510;
+
+  --color-gold-50: #fdf8ed;
+  --color-gold-100: #f8ecd0;
+  --color-gold-200: #f1d9a1;
+  --color-gold-300: #eac572;
+  --color-gold-400: #d4a94a;
+  --color-gold-500: #c9a84c;
+  --color-gold-600: #a1863d;
+  --color-gold-700: #79652e;
+  --color-gold-800: #51431f;
+  --color-gold-900: #28220f;
+
+  --color-warm-50: #fafaf7;
+  --color-warm-100: #f5f4ef;
+  --color-warm-200: #eae8df;
+  --color-warm-300: #d5d2c5;
+  --color-warm-400: #b5b1a1;
+  --color-warm-500: #95907d;
+
+  --color-charcoal: #1a1a2e;
+  --color-charcoal-light: #2d2d44;
+
+  /* Semantic Aliases */
+  --color-background: var(--color-warm-50);
+  --color-foreground: var(--color-charcoal);
+  --color-primary: var(--color-navy-800);
+  --color-primary-foreground: #ffffff;
+  --color-secondary: var(--color-green-500);
+  --color-accent: var(--color-gold-500);
+  --color-muted: var(--color-warm-200);
+  --color-muted-foreground: var(--color-warm-500);
+  --color-border: var(--color-warm-200);
+  --color-card: #ffffff;
+  --color-card-foreground: var(--color-charcoal);
+
+  /* Typography Scale */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Shadows */
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+  --shadow-card-hover: 0 4px 12px 0 rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+  --shadow-elevated: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 4px 10px -6px rgb(0 0 0 / 0.06);
+
+  /* Animations */
+  --animate-fade-in: fade-in 0.6s ease-out forwards;
+  --animate-slide-up: slide-up 0.6s ease-out forwards;
+  --animate-slide-down: slide-down 0.3s ease-out forwards;
+  --animate-scale-in: scale-in 0.3s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================================
+   Base Styles
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   Focus Styles (Accessibility)
+   ============================================================ */
+
+*:focus-visible {
+  outline: 2px solid var(--color-navy-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   Reduced Motion
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   Selection
+   ============================================================ */
+
+::selection {
+  background-color: var(--color-navy-200);
+  color: var(--color-navy-900);
+}
+
+/* ============================================================
+   Scrollbar
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-warm-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-warm-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-warm-500);
+}
